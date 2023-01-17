@@ -9,3 +9,5 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
 ## Your Explanation Here
+
+The original function had a couple of unnecessary nested If Statements that made the code deeper and harder to read. By checking a negative condition and returning early, and also immediately assiginig value to the var `candidate`, I could un-nest a few statements. Furthermore, some conditionals treated scenarios outside of their scope. For instance, if the var `candidate` is a hash using SHA3-512 and hex format, it cannot be longer than the maximum key lenght. I reordered the operations to assign value to the var `candidate` in one single `if...else` statement. The logic is more "tree-like" and easier to follow. 
